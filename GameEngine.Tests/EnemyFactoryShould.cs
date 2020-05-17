@@ -17,7 +17,7 @@ namespace GameEngine.Tests
             Assert.IsType<NormalEnemy>(enemy);
         }
 
-        [Fact]
+        [Fact(Skip = "Skip this step in Run")]
         public void CreateNormalEnemyByDefault_NotTypeExample()
         {
             EnemyFactory sut = new EnemyFactory();
