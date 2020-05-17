@@ -61,5 +61,17 @@ namespace GameEngine.Tests
             //erifies that an object is of the given type or a derived type.
             Assert.IsAssignableFrom<Enemy>(enemy);
         }
+
+        [Fact]
+        public void CreateSeparateInstances()
+        {
+            EnemyFactory sut = new EnemyFactory();
+
+            Enemy enemy1 = sut.Create("Zombie");
+            Enemy enemy2 = sut.Create("Zombie");
+
+            //Verifies that two objects are not the same instance.
+            Assert.NotSame(enemy1, enemy2);
+        }
     }
 }
