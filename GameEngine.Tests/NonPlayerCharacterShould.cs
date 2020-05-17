@@ -31,5 +31,16 @@ namespace GameEngine.Tests
 
             Assert.Equal(expectedHealth, sut.Health);
         }
+
+        [Theory]
+        [HealthDamageData]
+        public void TakeDamageValue_FromAttribute(int damage, int expectedHealth)
+        {
+            NonPlayerCharacter sut = new NonPlayerCharacter();
+
+            sut.TakeDamage(damage);
+
+            Assert.Equal(expectedHealth, sut.Health);
+        }
     }
 }
