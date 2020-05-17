@@ -17,5 +17,19 @@ namespace GameEngine.Tests
 
             Assert.Equal(expectedHealth, sut.Health);
         }
+
+        [Theory]
+        // ExternalHealthDamageTestData: Fetching data from external source e.g. csv file 
+        // & sharing in Static Property with MemberData
+        [MemberData(nameof(ExternalHealthDamageTestData.TestData),
+            MemberType = typeof(ExternalHealthDamageTestData))]
+        public void TakeDamageExternalValue(int damage, int expectedHealth)
+        {
+            NonPlayerCharacter sut = new NonPlayerCharacter();
+
+            sut.TakeDamage(damage);
+
+            Assert.Equal(expectedHealth, sut.Health);
+        }
     }
 }
