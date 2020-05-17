@@ -5,10 +5,10 @@ namespace GameEngine.Tests
     public class NonPlayerCharacterShould
     {
         [Theory]
-        [InlineData(0, 100)]
-        [InlineData(1, 99)]
-        [InlineData(50, 50)]
-        [InlineData(101, 1)]
+        // MemberData: Provides a data source for a data theory, with the data coming from one of the
+        // following sources: 1. A static property 2. A static field 3. A static method
+        [MemberData(nameof(InternalHealthDamageTestData.TestData), 
+            MemberType= typeof(InternalHealthDamageTestData))]
         public void TakeDamage(int damage, int expectedHealth)
         {
             NonPlayerCharacter sut = new NonPlayerCharacter();
